@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { fetchEvents } from "../../api/eventsAPI";
-import EventInterface from "../../interfaces/eventInterface";
+import { EventInterface } from "../../interfaces/eventInterface";
 import "./style.scss";
 
 const EventList: React.FC = () => {
+  const isOpen = useSelector((state: any) => state.modal.isOpen);
   const [events, setEvents] = useState<EventInterface[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -20,8 +22,8 @@ const EventList: React.FC = () => {
       }
     };
 
-    getEvents();
-  }, []);
+    if (!isOpen) getEvents();
+  }, [isOpen]);
 
   return (
     <div className="EventList">
@@ -31,7 +33,8 @@ const EventList: React.FC = () => {
         <ul>
           {events.map((event) => (
             <li key={event.id}>
-              {event.name} - {event.description}
+              <div>{event.name}</div>
+              <div>{event.description}</div>
             </li>
           ))}
         </ul>

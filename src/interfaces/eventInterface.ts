@@ -1,7 +1,7 @@
-export default interface EventInterface {
+export interface EventInterface {
   id: string;
   name: string;
   description: string;
-  startDate: string;
-  endDate: string;
+  startDate: Date | null;
+  endDate: Date | null;
 }

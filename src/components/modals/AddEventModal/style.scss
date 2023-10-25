@@ -1,0 +1,33 @@
+@import "../../../styles/variables/colors";
+@import "../../../styles/variables/dimensions";
+
+.AddEventModal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $modalLayer;
+
+    .AddEventModal__content {
+        max-width: 42em;
+        margin: 2em;
+        padding: 1em;
+        border-radius: $radius;
+        background-color: $background-secondary;
+
+        .AddEventModal__content__closeButton {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: auto;
+            padding: 0;
+            border: 0;
+            background-color: transparent;
+            cursor: pointer;
+        }
+    }
+}

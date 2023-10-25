@@ -1,0 +1,37 @@
+@import "../variables/colors";
+@import "../variables/dimensions";
+
+html,body {
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+    background-color: $background-dark;
+    font-family: sans-serif;
+    color: $font-dark;
+}
+
+#root {
+    width: 100%;
+    height: 100%;
+}
+
+.App {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .App__title {
+        color: $font-secondary;
+        text-transform: uppercase;
+    }
+}
+
+.mainContainer {
+    max-width: 42em;
+    padding: 2em;
+    border-radius: $radius;
+    background-color: $background-light;
+}
