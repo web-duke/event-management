@@ -7,6 +7,7 @@ import { addEvent } from "../../../api/eventsAPI";
 import { EventInterface } from "../../../interfaces/eventInterface";
 import { closeModal } from "../../../redux/modalSlice";
 import "./style.scss";
+import Button, { ButtonType } from "../../Button";
 
 const EventForm: React.FC = () => {
   const dispatch = useDispatch();
@@ -99,7 +100,11 @@ const EventForm: React.FC = () => {
         <div className="error-message">{formik.errors.endDate}</div>
       ) : null}
 
-      <button type="submit">Ajouter</button>
+      <Button
+        submitButton
+        type={ButtonType.Primary}
+        label="Ajouter un événement"
+      />
     </form>
   );
 };

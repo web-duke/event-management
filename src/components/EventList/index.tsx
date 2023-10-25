@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { fetchEvents } from "../../api/eventsAPI";
 import { EventInterface } from "../../interfaces/eventInterface";
 import "./style.scss";
+import EventCard from "../EventCard";
 
 const EventList: React.FC = () => {
   const isOpen = useSelector((state: any) => state.modal.isOpen);
@@ -28,13 +29,18 @@ const EventList: React.FC = () => {
   return (
     <div className="EventList">
       {loading ? (
-        <p>Chargement des événements...</p>
+        <div>loading</div>
       ) : (
-        <ul>
+        <ul className="EventList__list">
           {events.map((event) => (
-            <li key={event.id}>
-              <div>{event.name}</div>
-              <div>{event.description}</div>
+            <li className="EventList__list__item" key={event.id}>
+              <EventCard
+                id={event.id}
+                name={event.name}
+                description={event.description}
+                startDate={event.startDate}
+                endDate={event.endDate}
+              />
             </li>
           ))}
         </ul>

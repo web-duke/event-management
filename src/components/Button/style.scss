@@ -1,0 +1,32 @@
+@import "../../styles/variables/colors";
+@import "../../styles/variables/dimensions";
+
+.Button {
+    display: block;
+    border: 0;
+    padding: 1em;
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+    border-radius: $radius;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+
+    &.primary {        
+        background-color: $background-primary;
+        color: $font-light;
+
+        &:hover{            
+            background-color: $background-secondary;
+        }
+    }
+
+    &.secondary{
+        background-color: $background-secondary;
+        color: $font-dark;        
+
+        &:hover{            
+            background-color: $background-primary;
+        }
+    }
+}

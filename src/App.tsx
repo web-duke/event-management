@@ -3,9 +3,12 @@ import { useDispatch } from "react-redux";
 import EventList from "./components/EventList";
 import AddEventModal from "./components/modals/AddEventModal";
 import { openModal } from "./redux/modalSlice";
+import Button, { ButtonType } from "./components/Button";
 
 function App() {
   const dispatch = useDispatch();
+
+  const handleOpenModalClick = () => dispatch(openModal());
 
   return (
     <>
@@ -13,9 +16,11 @@ function App() {
         <h1 className="App__title">Event Manager</h1>
 
         <div className="mainContainer">
-          <button onClick={() => dispatch(openModal())}>
-            Ajouter un événement
-          </button>
+          <Button
+            type={ButtonType.Secondary}
+            label="Ajouter un événement"
+            onClick={handleOpenModalClick}
+          />
 
           <EventList />
         </div>
